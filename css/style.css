@@ -46,7 +46,7 @@ html {
   justify-content: space-between;
   align-items: center;
   box-shadow: #f09 0px 0px 10px;
-  height: 60px;
+  height: 55px;
   padding: 0 10px;
 }
 
@@ -103,7 +103,7 @@ html {
 }
 
 .contentapp {
-  height: calc(100% - (60px * 2) - 10px);
+  height: calc(100% - 50px);
 }
 
 .contentapp h2.title {
