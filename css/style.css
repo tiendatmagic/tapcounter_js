@@ -67,10 +67,11 @@ html {
   align-items: center;
   cursor: pointer;
   border-radius: 50%;
+  margin: 0 5px;
 }
 
 .menu-right div:hover {
-  background-color: rgba(130, 130, 130, 0.1);
+  background-color: rgba(150, 150, 150, 0.1);
 }
 
 .menu-right div svg {
@@ -97,6 +98,7 @@ html {
 .contentapp .number {
   text-align: center;
   font-size: 70px;
+  font-weight: bolder;
 }
 
 .navigation {
