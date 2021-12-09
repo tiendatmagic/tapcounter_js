@@ -25,8 +25,17 @@ var lock = false;
 window.onload = function () {
   getClass("number")[0].innerText = count;
 }
+getClass("bar")[0].onclick = function () {
+  getClass("list-group")[0].classList.toggle("show");
+}
+getId("app").onclick = function () {
+  if (getClass("list-group")[0].classList.value == "list-group show") {
 
+    getClass("list-group")[0].classList.remove("show");
+  }
+}
 getClass("contentapp")[0].onclick = function () {
+  // getClass("list-group")[0].classList.toggle("show");
   if (lock == false) {
 
     count++;
@@ -53,7 +62,7 @@ getId("li2").onclick = function () {
   else {
     lock = false;
     getId("li2").innerText = "LOCK";
-    getId("li2").style.backgroundColor = '#f09';
+    getId("li2").style.backgroundColor = '#f00';
   }
 }
 getId("li3").onclick = function () {
