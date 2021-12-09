@@ -39,24 +39,25 @@ getClass("contentapp")[0].onclick = function () {
   }
   if (lock == false) {
 
-    if (canzero == false) {
-
-      if (count >= 0) {
-        count++;
-        getClass("number")[0].innerText = count;
-        localStorage.setItem("count", JSON.stringify(count));
-      }
-    }
+    count++;
+    getClass("number")[0].innerText = count;
+    localStorage.setItem("count", JSON.stringify(count));
 
   }
 
 }
 getId("li1").onclick = function () {
   if (lock == false) {
-    count--;
 
-    getClass("number")[0].innerText = count;
-    localStorage.setItem("count", JSON.stringify(count));
+    if (canzero == false) {
+
+      if (count > 0) {
+        count--;
+        getClass("number")[0].innerText = count;
+        localStorage.setItem("count", JSON.stringify(count));
+      }
+    }
+
   }
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
