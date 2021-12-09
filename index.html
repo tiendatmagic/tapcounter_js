@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tap counter</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="./css/waves.min.css">
+  <link rel="stylesheet" href="./css/all.min.css" />
   <link rel="stylesheet" href="./css/style.css">
 
 </head>
@@ -43,34 +43,41 @@
           0
         </div>
       </div>
+
+
     </div>
     <div class="navigation">
-      <div class="li1 li">
+      <div class="li1 li waves-effect">
 
         <span>
 
           REMOVE COUNT
         </span>
       </div>
-      <div class="li2 li">
+      <div class="li2 li waves-effect">
         <span>
           LOCK
 
         </span>
       </div>
-      <div class="li3 li">
+      <div class="li3 li waves-effect">
         <span>
           RESET
 
         </span>
+
       </div>
     </div>
   </div>
 
   <script src="cordova.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
   <script src="./js/waves.min.js"></script>
+  <script src="./js/all.min.js"></script>
   <script src="./js/index.js"></script>
+  <script>
+    Waves.attach(".waves-effect");
+    Waves.init();
+  </script>
 </body>
 
 </html>
