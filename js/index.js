@@ -56,6 +56,12 @@ getId("li1").onclick = function () {
         getClass("number")[0].innerText = count;
         localStorage.setItem("count", JSON.stringify(count));
       }
+
+    }
+    else {
+      count--;
+      getClass("number")[0].innerText = count;
+      localStorage.setItem("count", JSON.stringify(count));
     }
 
   }

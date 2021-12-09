@@ -110,7 +110,7 @@ html {
 }
 
 .contentapp {
-  height: calc(100% - 50px);
+  height: calc(100% - 60px);
 }
 
 .contentapp h2.title {
