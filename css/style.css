@@ -121,6 +121,7 @@ html {
 
 .contentapp {
   height: calc(100% - 60px);
+  position: relative;
 }
 
 .contentapp h2.title {
@@ -161,4 +162,13 @@ html {
 }
 .navigation .li#li2 {
   background-color: #f00;
+}
+.li#li3 {
+  position: absolute;
+  bottom: 60px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  border-radius: 50%;
 }
