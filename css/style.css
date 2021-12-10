@@ -54,8 +54,6 @@ html {
   align-items: center;
   height: 50px;
   padding: 0 10px;
-  /* box-shadow: 0 2px 2px 0 rgba(255, 0, 85, 0.14),
-    0 3px 1px -2px rgba(255, 0, 85, 0.12), 0 1px 5px 0 rgba(255, 0, 85, 0.2); */
 }
 
 .menu-left {
@@ -163,12 +161,36 @@ html {
 .navigation .li#li2 {
   background-color: #f00;
 }
+.li#li1 {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #f09;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  box-shadow: 0 2px 2px 0 rgba(255, 0, 85, 0.34),
+    0 3px 1px -2px rgba(255, 0, 85, 0.32), 0 1px 5px 0 rgba(255, 0, 85, 0.4);
+  color: #fff;
+}
+
 .li#li3 {
   position: absolute;
   bottom: 60px;
-  right: 30px;
+  right: 20px;
   width: 60px;
   height: 60px;
-  background-color: red;
+  background-color: #f09;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  box-shadow: 0 2px 2px 0 rgba(255, 0, 85, 0.34),
+    0 3px 1px -2px rgba(255, 0, 85, 0.32), 0 1px 5px 0 rgba(255, 0, 85, 0.4);
+  color: #fff;
 }
