@@ -24,6 +24,11 @@ var lock = false;
 var canzero = false;
 window.onload = function () {
   getClass("number")[0].innerText = count;
+  setTimeout(function () {
+
+    getQueryAll("body")[0].classList.add("show");
+
+  }, 200);
 }
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
