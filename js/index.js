@@ -22,6 +22,7 @@ if (count == null || count == "") {
 }
 var lock = false;
 var canzero = false;
+
 window.onload = function () {
   getClass("number")[0].innerText = count;
   setTimeout(function () {
@@ -37,6 +38,12 @@ getClass("love")[0].onclick = function () {
 
 getClass("bar")[0].onclick = function () {
   getClass("list-group")[0].classList.toggle("show");
+  if (canzero == false) {
+    getClass("checkbox-input")[0].checked = false;
+  } else {
+    getClass("checkbox-input")[0].checked = true;
+  }
+
 }
 
 getClass("contentapp")[0].onclick = function () {
@@ -106,6 +113,18 @@ getId("li3").onclick = function () {
   }
 }
 getId("list1").onclick = function () {
+
+  if (canzero == false) {
+    canzero = true;
+    getClass("checkbox-input")[0].checked = true;
+
+  }
+  else {
+    canzero = false;
+    getClass("checkbox-input")[0].checked = false;
+  }
+
+
 
 }
 getId("list2").onclick = function () {
