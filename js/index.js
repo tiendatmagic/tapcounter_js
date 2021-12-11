@@ -77,12 +77,17 @@ getId("li1").onclick = function () {
 getId("li2").onclick = function () {
   if (lock == false) {
     lock = true;
-    getId("li2").innerText = "UNLOCK";
+    getQueryAll("#li2 .unlock")[0].style.display = 'block';
+    getQueryAll("#li2 .lock")[0].style.display = 'none';
+
     getId("li2").style.backgroundColor = 'green';
   }
   else {
     lock = false;
-    getId("li2").innerText = "LOCK";
+
+    getQueryAll("#li2 .lock")[0].style.display = 'block';
+    getQueryAll("#li2 .unlock")[0].style.display = 'none';
+
     getId("li2").style.backgroundColor = '#f00';
   }
   if (getClass("list-group")[0].classList.value == "list-group show") {
