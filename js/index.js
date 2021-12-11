@@ -34,6 +34,7 @@ getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
 
 }
+
 getClass("bar")[0].onclick = function () {
   getClass("list-group")[0].classList.toggle("show");
 }
@@ -103,4 +104,11 @@ getId("li3").onclick = function () {
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
   }
+}
+getId("list1").onclick = function () {
+
+}
+getId("list2").onclick = function () {
+  cordova.plugins.market.open("com.tiendatmagic.tapcounter");
+
 }
