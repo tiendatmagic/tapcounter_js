@@ -124,10 +124,7 @@ getId("list1").onclick = function () {
     getClass("checkbox-input")[0].checked = false;
   }
 
-
-
 }
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
-
 }
