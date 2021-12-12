@@ -124,11 +124,11 @@ getId("li2").onclick = function () {
   }
 }
 getId("li3").onclick = function () {
-  if (lock == false) {
-    count = 0;
-    getClass("number")[0].innerText = count;
-    localStorage.setItem("count", JSON.stringify(count));
-  }
+
+  count = 0;
+  getClass("number")[0].innerText = count;
+  localStorage.setItem("count", JSON.stringify(count));
+
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
   }
@@ -173,8 +173,12 @@ function onDeviceReady() {
 }
 
 function onVolumeUpKeyDown() {
-  countup();
+  if (canvolume == true) {
+    countup();
+  }
 }
 function onVolumeDownKeyDown() {
-  countdown();
+  if (canvolume == true) {
+    countdown();
+  }
 }
