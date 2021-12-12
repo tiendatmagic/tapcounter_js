@@ -22,6 +22,10 @@ if (count == null || count == "") {
 }
 var lock = false;
 var canzero = false;
+var canvolume = JSON.parse(localStorage.getItem("canvolume"));
+if (canvolume == null || canvolume == "") {
+  canvolume = true;
+}
 
 window.onload = function () {
   getClass("number")[0].innerText = count;
@@ -44,6 +48,13 @@ getClass("bar")[0].onclick = function () {
     getClass("checkbox-input")[0].checked = true;
   }
 
+  if (canvolume == false) {
+    getClass("checkbox3")[0].checked = false;
+  }
+  else {
+    getClass("checkbox3")[0].checked = true;
+  }
+
 }
 
 getClass("contentapp")[0].onclick = function () {
@@ -53,21 +64,10 @@ getClass("contentapp")[0].onclick = function () {
   countup();
 
 }
-function onDeviceReady() {
-  document.addEventListener("backbutton", onBackButton, false);
-  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
-  document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
 
-}
-function onVolumeUpKeyDown() {
-  countup();
-}
-function onVolumeDownKeyDown() {
-  countdown();
-}
+
 function countup() {
   if (lock == false) {
-
     count++;
     getClass("number")[0].innerText = count;
     localStorage.setItem("count", JSON.stringify(count));
@@ -108,6 +108,7 @@ getId("li2").onclick = function () {
     getQueryAll("#li2 .lock")[0].style.display = 'none';
 
     getId("li2").style.backgroundColor = 'green';
+    getId("li2").style.boxShadow = '0 2px 2px 0 rgba(132, 255, 0, 0.34),0 3px 1px -2px rgba(132, 255, 0, 0.34), 0 1px 5px 0 rgba(132, 255, 0, 0.34)';
   }
   else {
     lock = false;
@@ -116,6 +117,7 @@ getId("li2").onclick = function () {
     getQueryAll("#li2 .unlock")[0].style.display = 'none';
 
     getId("li2").style.backgroundColor = '#f00';
+    getId("li2").style.boxShadow = '0 2px 2px 0 rgba(255, 0, 0, 0.34),0 3px 1px -2px rgba(255, 0, 0, 0.34), 0 1px 5px 0 rgba(255, 0, 0, 0.34)';
   }
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
@@ -144,6 +146,35 @@ getId("list1").onclick = function () {
   }
 
 }
+getId("list3").onclick = function () {
+
+  if (canvolume == false) {
+    canvolume = true;
+    getClass("checkbox3")[0].checked = true;
+    localStorage.setItem("canvolume", JSON.stringify(canvolume));
+  }
+  else {
+    canvolume = false;
+    getClass("checkbox3")[0].checked = false;
+    localStorage.setItem("canvolume", JSON.stringify(canvolume));
+  }
+
+}
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
+}
+
+document.addEventListener("deviceready", function () {
+  onDeviceReady();
+});
+function onDeviceReady() {
+  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+  document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+}
+
+function onVolumeUpKeyDown() {
+  countup();
+}
+function onVolumeDownKeyDown() {
+  countdown();
 }
