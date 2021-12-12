@@ -50,6 +50,22 @@ getClass("contentapp")[0].onclick = function () {
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
   }
+  countup();
+
+}
+function onDeviceReady() {
+  document.addEventListener("backbutton", onBackButton, false);
+  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+  document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+
+}
+function onVolumeUpKeyDown() {
+  countup();
+}
+function onVolumeDownKeyDown() {
+  countdown();
+}
+function countup() {
   if (lock == false) {
 
     count++;
@@ -57,9 +73,15 @@ getClass("contentapp")[0].onclick = function () {
     localStorage.setItem("count", JSON.stringify(count));
 
   }
-
 }
+
 getId("li1").onclick = function () {
+  countdown();
+  if (getClass("list-group")[0].classList.value == "list-group show") {
+    getClass("list-group")[0].classList.remove("show");
+  }
+}
+function countdown() {
   if (lock == false) {
 
     if (canzero == false) {
@@ -77,9 +99,6 @@ getId("li1").onclick = function () {
       localStorage.setItem("count", JSON.stringify(count));
     }
 
-  }
-  if (getClass("list-group")[0].classList.value == "list-group show") {
-    getClass("list-group")[0].classList.remove("show");
   }
 }
 getId("li2").onclick = function () {
