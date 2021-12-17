@@ -29,6 +29,7 @@ if (canvolume == null || canvolume == "") {
 
 window.onload = function () {
   getClass("number")[0].innerText = count;
+  getId("li2").style.backgroundColor = 'rgb(255, 0, 0)';
   setTimeout(function () {
 
     getQueryAll("body")[0].classList.add("show");
@@ -42,6 +43,7 @@ getClass("love")[0].onclick = function () {
 
 getClass("bar")[0].onclick = function () {
   getClass("list-group")[0].classList.toggle("show");
+  lock = true;
   if (canzero == false) {
     getClass("checkbox-input")[0].checked = false;
   } else {
@@ -60,6 +62,13 @@ getClass("bar")[0].onclick = function () {
 getClass("contentapp")[0].onclick = function () {
   if (getClass("list-group")[0].classList.value == "list-group show") {
     getClass("list-group")[0].classList.remove("show");
+    if (getClass("list-group")[0].classList.value == "list-group" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
+    ) {
+
+      setTimeout(function () {
+        lock = false;
+      }, 1000);
+    }
   }
   countup();
 
