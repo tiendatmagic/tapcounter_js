@@ -25,15 +25,18 @@ var canzero = false;
 var canvolume = JSON.parse(localStorage.getItem("canvolume"));
 if (canvolume == null || canvolume == "") {
   canvolume = true;
+  localStorage.setItem("canvolume", JSON.stringify(canvolume));
 }
 var cansound = JSON.parse(localStorage.getItem("cansound"));
 if (cansound == null || cansound == "") {
   cansound = true;
+  localStorage.setItem("cansound", JSON.stringify(cansound));
 }
 
 var candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
 if (candarkmode == null || candarkmode == "") {
   candarkmode = false;
+  localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
 
 
