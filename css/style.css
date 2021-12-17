@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 *,
@@ -96,11 +97,16 @@ html {
   transition: all 0.17s linear;
 }
 
+.list-group.dark {
+  background-color: #272727;
+  color: #fff;
+}
+
 .list-group.show {
   visibility: visible;
   opacity: 1;
   width: 65%;
-  height: 200px;
+  height: 250px;
 }
 .list-group li {
   height: 50px;
@@ -124,16 +130,27 @@ html {
   position: relative;
 }
 
+.contentapp.dark {
+  background-color: #272727;
+}
+
 .contentapp h2.title {
   margin-left: 10px;
   padding-top: 30px;
   font-size: 30px;
+}
+.contentapp.dark h2.title {
+  color: #fff;
 }
 
 .contentapp .number {
   text-align: center;
   font-size: 70px;
   font-weight: bolder;
+}
+
+.contentapp.dark .number {
+  color: #fff;
 }
 
 .navigation {
@@ -194,15 +211,6 @@ html {
   background-color: #f09;
 }
 /* checkbox */
-
-/* Base setting, you can remove */
-* {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-}
 
 .checkbox-input {
   display: none;

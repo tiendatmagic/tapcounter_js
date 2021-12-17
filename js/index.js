@@ -31,12 +31,26 @@ if (cansound == null || cansound == "") {
   cansound = true;
 }
 
+var candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
+if (candarkmode == null || candarkmode == "") {
+  candarkmode = false;
+}
+
 
 window.onload = function () {
   canvolume = JSON.parse(localStorage.getItem("canvolume"));
   cansound = JSON.parse(localStorage.getItem("cansound"));
+  candarkmode = JSON.parse(localStorage.getItem("candarkmode"));
   getClass("number")[0].innerText = count;
   getId("li2").style.backgroundColor = 'rgb(255, 0, 0)';
+  if (candarkmode == false) {
+    getClass("contentapp")[0].classList.remove("dark");
+    getClass("list-group")[0].classList.remove("dark");
+  }
+  else {
+    getClass("contentapp")[0].classList.add("dark");
+    getClass("list-group")[0].classList.add("dark");
+  }
   setTimeout(function () {
     getQueryAll("body")[0].classList.add("show");
   }, 100);
@@ -51,9 +65,9 @@ getClass("bar")[0].onclick = function () {
   getClass("list-group")[0].classList.toggle("show");
   lock = true;
   if (canzero == false) {
-    getClass("checkbox-input")[0].checked = false;
+    getClass("checkbox1")[0].checked = false;
   } else {
-    getClass("checkbox-input")[0].checked = true;
+    getClass("checkbox1")[0].checked = true;
   }
 
   if (canvolume == false) {
@@ -70,13 +84,21 @@ getClass("bar")[0].onclick = function () {
     getClass("checkbox4")[0].checked = true;
   }
 
+  if (candarkmode == false) {
+    getClass("checkbox5")[0].checked = false;
+  }
+  else {
+    getClass("checkbox5")[0].checked = true;
+  }
+
 }
 
 getClass("contentapp")[0].onclick = function () {
-  if (getClass("list-group")[0].classList.value == "list-group show") {
+  if (getClass("list-group")[0].classList.value == "list-group show" || getClass("list-group")[0].classList.value == "list-group dark show" || getClass("list-group")[0].classList.value == "list-group show dark") {
     getClass("list-group")[0].classList.remove("show");
-    if (getClass("list-group")[0].classList.value == "list-group" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
-    ) {
+    if ((getClass("list-group")[0].classList.value == "list-group" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
+    ) || (getClass("list-group")[0].classList.value == "list-group dark" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
+      )) {
 
       setTimeout(function () {
         lock = false;
@@ -163,12 +185,12 @@ getId("list1").onclick = function () {
 
   if (canzero == false) {
     canzero = true;
-    getClass("checkbox-input")[0].checked = true;
+    getClass("checkbox1")[0].checked = true;
 
   }
   else {
     canzero = false;
-    getClass("checkbox-input")[0].checked = false;
+    getClass("checkbox1")[0].checked = false;
   }
 
 }
@@ -198,6 +220,25 @@ getId("list4").onclick = function () {
     cansound = false;
     getClass("checkbox4")[0].checked = false;
     localStorage.setItem("cansound", JSON.stringify(cansound));
+  }
+
+}
+
+getId("list5").onclick = function () {
+
+  if (candarkmode == false) {
+    candarkmode = true;
+    getClass("checkbox5")[0].checked = true;
+    localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
+    getClass("contentapp")[0].classList.add("dark");
+    getClass("list-group")[0].classList.add("dark");
+  }
+  else {
+    candarkmode = false;
+    getClass("checkbox5")[0].checked = false;
+    localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
+    getClass("contentapp")[0].classList.remove("dark");
+    getClass("list-group")[0].classList.remove("dark");
   }
 
 }
