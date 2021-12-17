@@ -39,7 +39,6 @@ if (candarkmode == null || candarkmode == "") {
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
 
-
 window.onload = function () {
   canvolume = JSON.parse(localStorage.getItem("canvolume"));
   cansound = JSON.parse(localStorage.getItem("cansound"));
