@@ -134,7 +134,10 @@ function countdown() {
   if (lock == false) {
 
     if (canzero == false) {
-
+      if (cansound == true) {
+        var soundp = new Audio('./audio/drop.ogg');
+        soundp.play();
+      }
       if (count > 0) {
         count--;
         getClass("number")[0].innerText = count;

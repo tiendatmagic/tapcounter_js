@@ -128,25 +128,20 @@ html {
 .contentapp {
   height: calc(100% - 50px);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contentapp.dark {
   background-color: #272727;
 }
 
-.contentapp h2.title {
-  margin-left: 10px;
-  padding-top: 30px;
-  font-size: 30px;
-}
-.contentapp.dark h2.title {
-  color: #fff;
-}
-
 .contentapp .number {
   text-align: center;
-  font-size: 70px;
+  font-size: 90px;
   font-weight: bolder;
+  margin-bottom: 50px;
 }
 
 .contentapp.dark .number {
@@ -243,4 +238,12 @@ html {
   color: white;
   opacity: 1;
   visibility: visible;
+}
+@media only screen and (max-width: 320px) {
+  .list-group li {
+    padding: 0 10px;
+  }
+  .list-group li span {
+    font-size: 13px;
+  }
 }
