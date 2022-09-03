@@ -39,6 +39,15 @@ if (candarkmode == null || candarkmode == "") {
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
 
+document.addEventListener("deviceready", function () {
+  onDeviceReady();
+});
+
+function onDeviceReady() {
+  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+  document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+}
+
 window.onload = function () {
   canvolume = JSON.parse(localStorage.getItem("canvolume"));
   cansound = JSON.parse(localStorage.getItem("cansound"));
@@ -133,11 +142,12 @@ getId("li1").onclick = function () {
 function countdown() {
   if (lock == false) {
 
+    if (cansound == true) {
+      var soundp = new Audio('./audio/drop.ogg');
+      soundp.play();
+    }
     if (canzero == false) {
-      if (cansound == true) {
-        var soundp = new Audio('./audio/drop.ogg');
-        soundp.play();
-      }
+
       if (count > 0) {
         count--;
         getClass("number")[0].innerText = count;
@@ -251,13 +261,9 @@ getId("list5").onclick = function () {
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
 }
+getId("list6").onclick = function () {
 
-document.addEventListener("deviceready", function () {
-  onDeviceReady();
-});
-function onDeviceReady() {
-  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
-  document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+  cordova.plugins.codeplay_shareapk.openShare();
 }
 
 function onVolumeUpKeyDown() {
