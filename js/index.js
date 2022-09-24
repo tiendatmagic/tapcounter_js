@@ -263,7 +263,7 @@ getId("list2").onclick = function () {
 }
 getId("list6").onclick = function () {
 
-  cordova.plugins.codeplay_shareapk.openShare();
+  cordova.plugins.codeplay_shareapk.openShare("Tap Counter");
 }
 
 function onVolumeUpKeyDown() {
