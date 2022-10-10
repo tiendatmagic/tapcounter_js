@@ -151,19 +151,7 @@ function countdown() {
 }
 getId("li2").onclick = function () {
   if (!openmenu) {
-    if (lock == false) {
-      lock = true;
-      getQueryAll("#li2 .unlock")[0].style.display = 'block';
-      getQueryAll("#li2 .lock")[0].style.display = 'none';
-      getId("li2").style.backgroundColor = 'green';
-      getId("li2").style.boxShadow = '0 2px 2px 0 rgba(132, 255, 0, 0.34),0 3px 1px -2px rgba(132, 255, 0, 0.34), 0 1px 5px 0 rgba(132, 255, 0, 0.34)';
-    } else {
-      lock = false;
-      getQueryAll("#li2 .lock")[0].style.display = 'block';
-      getQueryAll("#li2 .unlock")[0].style.display = 'none';
-      getId("li2").style.backgroundColor = '#f00';
-      getId("li2").style.boxShadow = '0 2px 2px 0 rgba(255, 0, 0, 0.34),0 3px 1px -2px rgba(255, 0, 0, 0.34), 0 1px 5px 0 rgba(255, 0, 0, 0.34)';
-    }
+    checkLock();
     if (getClass("list-group")[0].classList.value == "list-group show") {
       getClass("list-group")[0].classList.remove("show");
     }
@@ -274,12 +262,18 @@ getId("list7").onclick = function () {
       else {
         getClass("number")[0].style.fontSize = '90px';
       }
+      if (getId("li2").style.backgroundColor == 'green') {
+        lock = true;
+      }
     }
   }
   getId("closebox").onclick = function () {
     lock = false;
     getClass("box-start")[0].remove();
     getId("blur").classList.remove("show");
+    if (getId("li2").style.backgroundColor == 'green') {
+      lock = true;
+    }
   }
 
 }
@@ -288,6 +282,9 @@ getId("blur").onclick = function () {
   getClass("box-start")[0].remove();
   this.classList.remove("show");
   openmenu = false;
+  if (getId("li2").style.backgroundColor == 'green') {
+    lock = true;
+  }
 }
 function onVolumeUpKeyDown() {
   if (canvolume == true) {
@@ -306,5 +303,20 @@ function checkOpenMenu() {
     getClass("list-group")[0].classList.toggle("show");
   } else {
     getClass("list-group")[0].classList.remove("show");
+  }
+}
+function checkLock() {
+  if (lock == false) {
+    lock = true;
+    getQueryAll("#li2 .unlock")[0].style.display = 'block';
+    getQueryAll("#li2 .lock")[0].style.display = 'none';
+    getId("li2").style.backgroundColor = 'green';
+    getId("li2").style.boxShadow = '0 2px 2px 0 rgba(132, 255, 0, 0.34),0 3px 1px -2px rgba(132, 255, 0, 0.34), 0 1px 5px 0 rgba(132, 255, 0, 0.34)';
+  } else {
+    lock = false;
+    getQueryAll("#li2 .lock")[0].style.display = 'block';
+    getQueryAll("#li2 .unlock")[0].style.display = 'none';
+    getId("li2").style.backgroundColor = '#f00';
+    getId("li2").style.boxShadow = '0 2px 2px 0 rgba(255, 0, 0, 0.34),0 3px 1px -2px rgba(255, 0, 0, 0.34), 0 1px 5px 0 rgba(255, 0, 0, 0.34)';
   }
 }
