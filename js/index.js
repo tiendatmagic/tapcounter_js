@@ -230,7 +230,7 @@ getId("list5").onclick = function () {
   }
   AdMob.prepareInterstitial({
     adId: admobid.interstitial,
-    isTest: true,
+    isTesting: true,
     autoShow: true,
   });
 }
