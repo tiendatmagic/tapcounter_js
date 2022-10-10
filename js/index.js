@@ -233,8 +233,8 @@ getId("list7").onclick = function () {
   openmenu = true;
   getClass("contentapp")[0].innerHTML += `
   <div class="box-start show">
-    <h2>Luật chơi</h2>
-    <div class="sel select1 active">
+    <h2>Change number</h2>
+    <div class="">
       <input autofocus="" type="number" name="" id="inputnum1" class="inputnumber" placeholder="Nhập tổng số ván">
     </div>
     <div class="box-btn-group">
@@ -242,18 +242,25 @@ getId("list7").onclick = function () {
       <button id="playbox" class="btn waves-effect">Chơi ngay</button>
     </div>
   </div>
-  <div id="blur" class="show"></div>
   `;
+  getClass("box-start")[0].onclick = function () {
+    openmenu = true;
+  }
+  getId("blur").classList.add("show");
+  getId("playbox").onclick = function () {
+  }
   getId("closebox").onclick = function () {
     lock = false;
     getClass("box-start")[0].remove();
-    getId("blur").remove();
+    getId("blur").classList.remove("show");
   }
-  getId("blur").onclick = function () {
-    lock = false;
-    getClass("box-start")[0].remove();
-    this.remove();
-  }
+
+}
+getId("blur").onclick = function () {
+  lock = false;
+  getClass("box-start")[0].remove();
+  this.classList.remove("show");
+  openmenu = false;
 }
 function onVolumeUpKeyDown() {
   if (canvolume == true) {
