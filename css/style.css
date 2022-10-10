@@ -270,6 +270,7 @@ html {
 }
 .box-start h2 {
   font-size: 20px;
+  font-weight: 100;
 }
 .box-start > div {
   display: flex;
@@ -298,7 +299,7 @@ html {
   visibility: visible;
 }
 .box-start div input {
-  width: 90%;
+  width: 100%;
   height: 40px;
   border-radius: 6px;
   border: 1px solid #d1d1d1;

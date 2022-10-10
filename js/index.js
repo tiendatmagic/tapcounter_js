@@ -235,7 +235,7 @@ getId("list7").onclick = function () {
   <div class="box-start show">
     <h2>Change number</h2>
     <div class="">
-      <input autofocus="" type="number" name="" id="inputnum1" class="inputnumber" placeholder="Nhập tổng số ván">
+      <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Nhập tổng số ván">
     </div>
     <div class="box-btn-group">
       <button id="closebox" class="btn waves-effect">Đóng</button>
@@ -248,6 +248,12 @@ getId("list7").onclick = function () {
   }
   getId("blur").classList.add("show");
   getId("playbox").onclick = function () {
+    count = getId("inputnum").value;
+    getClass("number")[0].innerText = count;
+    localStorage.setItem("count", JSON.stringify(count));
+    lock = false;
+    getClass("box-start")[0].remove();
+    getId("blur").classList.remove("show");
   }
   getId("closebox").onclick = function () {
     lock = false;
