@@ -21,6 +21,7 @@ if (count == null || count == "") {
   count = 0;
 }
 var lock = false;
+var openmenu = false;
 var canzero = false;
 var canvolume = JSON.parse(localStorage.getItem("canvolume"));
 if (canvolume == null || canvolume == "") {
@@ -69,12 +70,17 @@ window.onload = function () {
 
 getClass("love")[0].onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
-
 }
 
 getClass("bar")[0].onclick = function () {
-  getClass("list-group")[0].classList.toggle("show");
-  lock = true;
+  openmenu = true;
+  if (openmenu) {
+    getClass("list-group")[0].classList.toggle("show");
+  }
+  else {
+    getClass("list-group")[0].classList.remove("show");
+  }
+
   if (canzero == false) {
     getClass("checkbox1")[0].checked = false;
   } else {
@@ -105,16 +111,24 @@ getClass("bar")[0].onclick = function () {
 }
 
 getClass("contentapp")[0].onclick = function () {
-  if (getClass("list-group")[0].classList.value == "list-group show" || getClass("list-group")[0].classList.value == "list-group dark show" || getClass("list-group")[0].classList.value == "list-group show dark") {
-    getClass("list-group")[0].classList.remove("show");
-    if ((getClass("list-group")[0].classList.value == "list-group" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
-    ) || (getClass("list-group")[0].classList.value == "list-group dark" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
-      )) {
+  // if (getClass("list-group")[0].classList.value == "list-group show" || getClass("list-group")[0].classList.value == "list-group dark show" || getClass("list-group")[0].classList.value == "list-group show dark") {
+  //   getClass("list-group")[0].classList.remove("show");
+  //   if ((getClass("list-group")[0].classList.value == "list-group" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
+  //   ) || (getClass("list-group")[0].classList.value == "list-group dark" && lock == true && getId("li2").style.backgroundColor == 'rgb(255, 0, 0)'
+  //     )) {
 
-      setTimeout(function () {
-        lock = false;
-      }, 1000);
-    }
+  //     setTimeout(function () {
+  //       lock = false;
+  //     }, 1000);
+  //   }
+  // }
+
+  openmenu = false;
+  if (openmenu) {
+    getClass("list-group")[0].classList.toggle("show");
+  }
+  else {
+    getClass("list-group")[0].classList.remove("show");
   }
   countup();
 
@@ -122,7 +136,7 @@ getClass("contentapp")[0].onclick = function () {
 
 
 function countup() {
-  if (lock == false) {
+  if (lock == false && openmenu == false) {
     count++;
     getClass("number")[0].innerText = count;
     localStorage.setItem("count", JSON.stringify(count));
@@ -134,13 +148,17 @@ function countup() {
 }
 
 getId("li1").onclick = function () {
-  countdown();
-  if (getClass("list-group")[0].classList.value == "list-group show") {
+  openmenu = false;
+  if (openmenu) {
+    getClass("list-group")[0].classList.toggle("show");
+  }
+  else {
     getClass("list-group")[0].classList.remove("show");
   }
+  countdown();
 }
 function countdown() {
-  if (lock == false) {
+  if (lock == false && openmenu == false) {
 
     if (cansound == true) {
       var soundp = new Audio('./audio/drop.ogg');
@@ -164,6 +182,13 @@ function countdown() {
   }
 }
 getId("li2").onclick = function () {
+  openmenu = false;
+  if (openmenu) {
+    getClass("list-group")[0].classList.toggle("show");
+  }
+  else {
+    getClass("list-group")[0].classList.remove("show");
+  }
   if (lock == false) {
     lock = true;
     getQueryAll("#li2 .unlock")[0].style.display = 'block';
@@ -186,7 +211,13 @@ getId("li2").onclick = function () {
   }
 }
 getId("li3").onclick = function () {
-
+  openmenu = false;
+  if (openmenu) {
+    getClass("list-group")[0].classList.toggle("show");
+  }
+  else {
+    getClass("list-group")[0].classList.remove("show");
+  }
   count = 0;
   getClass("number")[0].innerText = count;
   localStorage.setItem("count", JSON.stringify(count));
