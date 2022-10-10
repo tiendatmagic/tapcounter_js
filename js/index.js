@@ -37,6 +37,9 @@ if (candarkmode == null || candarkmode == "") {
   candarkmode = false;
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
+var admobid = {
+  interstitial: "ca-app-pub-2636216160874899/8129796215",
+};
 document.addEventListener("deviceready", function () {
   onDeviceReady();
 });
@@ -225,6 +228,11 @@ getId("list5").onclick = function () {
     getClass("contentapp")[0].classList.remove("dark");
     getClass("list-group")[0].classList.remove("dark");
   }
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    isTest: true,
+    autoShow: true,
+  });
 }
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
