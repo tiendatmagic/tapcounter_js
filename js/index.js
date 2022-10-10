@@ -96,6 +96,7 @@ getClass("bar")[0].onclick = function () {
 getClass("contentapp")[0].onclick = function () {
   if (!openmenu) {
     countup();
+
   }
   openmenu = false;
   checkOpenMenu();
@@ -226,7 +227,34 @@ getId("list2").onclick = function () {
 getId("list6").onclick = function () {
   cordova.plugins.codeplay_shareapk.openShare("Tap Counter");
 }
-
+getId("list7").onclick = function () {
+  openmenu = true;
+  checkOpenMenu();
+  openmenu = true;
+  getClass("contentapp")[0].innerHTML += `
+  <div class="box-start show">
+    <h2>Luật chơi</h2>
+    <div class="sel select1 active">
+      <input autofocus="" type="number" name="" id="inputnum1" class="inputnumber" placeholder="Nhập tổng số ván">
+    </div>
+    <div class="box-btn-group">
+      <button id="closebox" class="btn waves-effect">Đóng</button>
+      <button id="playbox" class="btn waves-effect">Chơi ngay</button>
+    </div>
+  </div>
+  <div id="blur" class="show"></div>
+  `;
+  getId("closebox").onclick = function () {
+    lock = false;
+    getClass("box-start")[0].remove();
+    getId("blur").remove();
+  }
+  getId("blur").onclick = function () {
+    lock = false;
+    getClass("box-start")[0].remove();
+    this.remove();
+  }
+}
 function onVolumeUpKeyDown() {
   if (canvolume == true) {
     countup();
