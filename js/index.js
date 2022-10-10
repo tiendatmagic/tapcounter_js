@@ -58,6 +58,12 @@ window.onload = function () {
     getClass("contentapp")[0].classList.add("dark");
     getClass("list-group")[0].classList.add("dark");
   }
+  if (count >= 9999999999 && window.innerWidth <= 600) {
+    getClass("number")[0].style.fontSize = '50px';
+  }
+  else {
+    getClass("number")[0].style.fontSize = '90px';
+  }
   setTimeout(function () {
     getQueryAll("body")[0].classList.add("show");
   }, 100);
@@ -96,7 +102,6 @@ getClass("bar")[0].onclick = function () {
 getClass("contentapp")[0].onclick = function () {
   if (!openmenu) {
     countup();
-
   }
   openmenu = false;
   checkOpenMenu();
@@ -122,7 +127,7 @@ getId("li1").onclick = function () {
 }
 
 function countdown() {
-  countup();
+
   if (lock == false && openmenu == false) {
     if (cansound == true) {
       var soundp = new Audio('./audio/drop.ogg');
@@ -238,8 +243,8 @@ getId("list7").onclick = function () {
       <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Nhập tổng số ván">
     </div>
     <div class="box-btn-group">
-      <button id="closebox" class="btn waves-effect">Đóng</button>
-      <button id="playbox" class="btn waves-effect">Chơi ngay</button>
+      <button id="closebox" class="btn waves-effect">Close</button>
+      <button id="playbox" class="btn waves-effect">Save</button>
     </div>
   </div>
   `;
@@ -248,12 +253,20 @@ getId("list7").onclick = function () {
   }
   getId("blur").classList.add("show");
   getId("playbox").onclick = function () {
-    count = getId("inputnum").value;
-    getClass("number")[0].innerText = count;
-    localStorage.setItem("count", JSON.stringify(count));
-    lock = false;
-    getClass("box-start")[0].remove();
-    getId("blur").classList.remove("show");
+    count = Number(getId("inputnum").value);
+    if (count <= 999999999999999) {
+      getClass("number")[0].innerText = count;
+      localStorage.setItem("count", JSON.stringify(count));
+      lock = false;
+      getClass("box-start")[0].remove();
+      getId("blur").classList.remove("show");
+      if (count >= 9999999999 && window.innerWidth <= 600) {
+        getClass("number")[0].style.fontSize = '50px';
+      }
+      else {
+        getClass("number")[0].style.fontSize = '90px';
+      }
+    }
   }
   getId("closebox").onclick = function () {
     lock = false;
