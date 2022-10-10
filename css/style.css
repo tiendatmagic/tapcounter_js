@@ -264,6 +264,9 @@ html {
   z-index: 9;
   padding: 10px 15px;
 }
+.contentapp.dark .box-start {
+  background-color: #272727;
+}
 .box-start.show {
   display: block;
   transform-origin: 0% 0%;
@@ -273,6 +276,10 @@ html {
   font-size: 20px;
   font-weight: 100;
 }
+.contentapp.dark .box-start h2 {
+  color: #fff;
+}
+
 .box-start > div {
   display: flex;
   justify-content: space-between;
@@ -307,6 +314,11 @@ html {
   outline: none;
   text-indent: 10px;
   margin-top: 7px;
+}
+.contentapp.dark .box-start div input {
+  background-color: #393939;
+  border: none;
+  color: #fff;
 }
 #blur {
   display: none;

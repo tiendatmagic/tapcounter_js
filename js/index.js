@@ -248,7 +248,7 @@ getId("list7").onclick = function () {
   <div class="box-start show">
     <h2>Change number</h2>
     <div class="">
-      <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Nhập tổng số ván">
+      <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Number">
     </div>
     <div class="box-btn-group">
       <button id="closebox" class="btn waves-effect">Close</button>
