@@ -201,6 +201,7 @@ getId("list4").onclick = function () {
     getClass("checkbox4")[0].checked = false;
     localStorage.setItem("cansound", JSON.stringify(cansound));
   }
+  watchAdMob();
 }
 getId("list5").onclick = function () {
   if (candarkmode == false) {
@@ -216,11 +217,8 @@ getId("list5").onclick = function () {
     getClass("contentapp")[0].classList.remove("dark");
     getClass("list-group")[0].classList.remove("dark");
   }
-  AdMob.prepareInterstitial({
-    adId: admobid.interstitial,
-    isTesting: true,
-    autoShow: true,
-  });
+
+  watchAdMob();
 }
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
@@ -266,6 +264,7 @@ getId("list7").onclick = function () {
         lock = true;
       }
     }
+    watchAdMob();
   }
   getId("closebox").onclick = function () {
     lock = false;
@@ -319,4 +318,12 @@ function checkLock() {
     getId("li2").style.backgroundColor = '#f00';
     getId("li2").style.boxShadow = '0 2px 2px 0 rgba(255, 0, 0, 0.34),0 3px 1px -2px rgba(255, 0, 0, 0.34), 0 1px 5px 0 rgba(255, 0, 0, 0.34)';
   }
+}
+
+function watchAdMob() {
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    isTesting: true,
+    autoShow: true,
+  });
 }
