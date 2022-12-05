@@ -201,7 +201,6 @@ getId("list4").onclick = function () {
     getClass("checkbox4")[0].checked = false;
     localStorage.setItem("cansound", JSON.stringify(cansound));
   }
-  watchAdMob();
 }
 getId("list5").onclick = function () {
   if (candarkmode == false) {
