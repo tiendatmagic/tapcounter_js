@@ -216,8 +216,6 @@ getId("list5").onclick = function () {
     getClass("contentapp")[0].classList.remove("dark");
     getClass("list-group")[0].classList.remove("dark");
   }
-
-  watchAdMob();
 }
 getId("list2").onclick = function () {
   cordova.plugins.market.open("com.tiendatmagic.tapcounter");
