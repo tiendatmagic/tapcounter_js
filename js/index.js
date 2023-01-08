@@ -233,6 +233,7 @@ getId("list7").onclick = function () {
   <div class="box-start show">
     <h2>Change number</h2>
     <div class="">
+    <label class="label">Enter your number</label>
       <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Number">
     </div>
     <div class="box-btn-group">
