@@ -223,6 +223,9 @@ getId("list2").onclick = function () {
 getId("list6").onclick = function () {
   cordova.plugins.codeplay_shareapk.openShare("Tap Counter");
 }
+getId("list8").onclick = function () {
+  cordova.InAppBrowser.open("mailto: tiendatmagic8@gmail.com", "_system");
+}
 getId("list7").onclick = function () {
   openmenu = true;
   checkOpenMenu();
