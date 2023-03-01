@@ -232,7 +232,7 @@ getId("list7").onclick = function () {
   openmenu = true;
   getClass("contentapp")[0].innerHTML += `
   <div class="box-start show">
-    <h2>Change number</h2>
+    <p>Change number</p>
     <div class="">
     <label class="label">Enter your number</label>
       <input autofocus="" type="number" name="" id="inputnum" class="inputnumber" placeholder="Number">

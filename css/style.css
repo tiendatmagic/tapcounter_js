@@ -272,7 +272,7 @@ html {
   transform-origin: 0% 0%;
   animation: scale 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-.box-start h2 {
+.box-start p {
   font-size: 20px;
   font-weight: 100;
 }
