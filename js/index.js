@@ -322,9 +322,10 @@ function checkLock() {
 }
 
 function watchAdMob() {
-  AdMob.prepareInterstitial({
-    adId: admobid.interstitial,
-    isTesting: true,
-    autoShow: true,
-  });
+  admob.interstitial.config({
+    id: admobid.interstitial
+  })
+
+  admob.interstitial.prepare()
+  admob.interstitial.show()
 }
