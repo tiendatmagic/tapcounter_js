@@ -38,7 +38,7 @@ if (candarkmode == null || candarkmode == "") {
   localStorage.setItem("candarkmode", JSON.stringify(candarkmode));
 }
 var admobid = {
-  interstitial: "ca-app-pub-2636216160874899/8129796215",
+  interstitial: "ca-app-pub-9736910515799107/7731653691",
 };
 document.addEventListener("deviceready", function () {
   onDeviceReady();
